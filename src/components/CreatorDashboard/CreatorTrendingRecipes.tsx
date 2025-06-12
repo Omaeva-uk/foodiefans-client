@@ -33,7 +33,7 @@ const CreatorTrendingRecipes: React.FC = () => {
         {trendingRecipes.map((recipe, index) => (
           <div
             key={index}
-            className="flex gap-4 items-center border-[0.5px] border-primary/30 rounded-xl p-3 hover:shadow-md hover:border-primary transition-all"
+            className="flex max-xl:flex-col  gap-4 xl:items-center border-[0.5px] border-primary/30 rounded-xl p-3 hover:shadow-md hover:border-primary transition-all"
           >
             <img
               src={recipe.image}

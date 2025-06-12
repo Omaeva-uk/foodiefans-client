@@ -176,11 +176,11 @@ const ChatPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-6">
           {/* Left sidebar - Chat list */}
-          <div className="lg:col-span-2 bg-white rounded-xl shadow-sm overflow-hidden border-[0.5px] border-[#4EB596]">
+          <div className="lg:col-span-2 bg-white rounded-xl shadow-sm overflow-hidden ">
             {/* Tabs */}
-            <div className="flex border-b border-gray-200">
+            <div className="flex">
               <button 
-                className={`flex-1 py-3 text-sm font-medium ${activeTab === 'All Conversation' ? 'text-[#4EB596] border-b-2 border-[#4EB596]' : 'text-gray-500'}`}
+                className={`flex-1 py-3 text-sm font-medium ${activeTab === 'All Conversation' ? 'text-primary border-b-2 border-primary' : 'text-gray-500'}`}
                 onClick={() => setActiveTab('All Conversation')}
               >
                 <div className="flex items-center justify-center">
@@ -193,7 +193,7 @@ const ChatPage: React.FC = () => {
                 </div>
               </button>
               <button 
-                className={`flex-1 py-3 text-sm font-medium ${activeTab === 'Archived' ? 'text-[#4EB596] border-b-2 border-[#4EB596]' : 'text-gray-500'}`}
+                className={`flex-1 py-3 text-sm font-medium ${activeTab === 'Archived' ? 'text-primary border-b-2 border-primary' : 'text-gray-500'}`}
                 onClick={() => setActiveTab('Archived')}
               >
                 <div className="flex items-center justify-center">
@@ -208,11 +208,11 @@ const ChatPage: React.FC = () => {
             </div>
             
             {/* Chat list */}
-            <div className="overflow-y-auto h-[calc(100vh-12rem)] border-[0.5px] border-[#4EB596]">
+            <div className="overflow-y-auto ">
               {chatUsers.map(user => (
                 <div 
                   key={user.id}
-                  className={`flex items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors ${user.name === currentChat ? 'border-l-4 border-[#4EB596] bg-[#F8FBFA]' : ''}`}
+                  className={`flex items-center p-4 cursor-pointer hover:bg-gray-50 rounded-xl bg-primary-light/10 transition-colors ${user.name === currentChat ? 'border-r-4 border-primary bg-white' : ''}`}
                   onClick={() => handleChangeChat(user.name)}
                 >
                   <div className="relative mr-3">
@@ -243,7 +243,7 @@ const ChatPage: React.FC = () => {
           </div>
           
           {/* Middle - Chat messages */}
-          <div className="lg:col-span-3 flex flex-col bg-white rounded-xl shadow-sm overflow-hidden border-[0.5px] border-[#4EB596]">
+          <div className="lg:col-span-3 flex flex-col bg-white rounded-xl shadow-sm overflow-hidden border-[0.5px] border-gray-200">
             {/* Chat header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200">
               <div className="flex items-center">
@@ -268,7 +268,7 @@ const ChatPage: React.FC = () => {
             </div>
             
             {/* Chat messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 h-[calc(100vh-15rem)] border-[0.5px] border-[#4EB596]">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 h-[calc(100vh-15rem)]  border-gray-200">
               {chatMessages.map(msg => (
                 <div key={msg.id} className={`flex ${msg.isCurrentUser ? 'justify-end' : 'justify-start'}`}>
                   {!msg.isCurrentUser && (
@@ -285,7 +285,7 @@ const ChatPage: React.FC = () => {
                     <div 
                       className={`rounded-xl p-3 break-words ${
                         msg.isCurrentUser 
-                          ? 'bg-[#4EB596] text-white' 
+                          ? 'bg-primary text-white' 
                           : 'bg-gray-100 text-gray-800'
                       }`}
                     >
@@ -315,7 +315,7 @@ const ChatPage: React.FC = () => {
                 />
                 <button 
                   type="submit" 
-                  className="ml-2 bg-[#4EB596] text-white rounded-full p-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="ml-2 bg-primary text-white rounded-full p-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={!message.trim()}
                 >
                   <Send size={16} />
@@ -325,7 +325,7 @@ const ChatPage: React.FC = () => {
           </div>
           
           {/* Right sidebar - User profile */}
-          <div className="lg:col-span-2 bg-white rounded-xl shadow-sm border-[0.5px] border-[#4EB596]">
+          <div className="lg:col-span-2 bg-white rounded-xl shadow-sm border-[0.5px] border-gray-200">
             <div className="h-full flex flex-col items-center py-8 px-4">
               <img 
                 src="/creator1.jpg" 
@@ -352,7 +352,7 @@ const ChatPage: React.FC = () => {
               <div className="w-full mb-4">
                 <div className="flex border-b border-gray-200 w-full">
                   <button 
-                    className="flex-1 pb-2 text-sm font-medium text-[#4EB596] border-b-2 border-[#4EB596]"
+                    className="flex-1 pb-2 text-sm font-medium text-primary border-b-2 border-primary"
                   >
                     Attachments
                   </button>
@@ -377,7 +377,7 @@ const ChatPage: React.FC = () => {
                 ))}
               </div>
               
-              <button className="mt-6 w-full py-2 border border-[#4EB596] text-[#4EB596] rounded-full text-sm font-medium hover:bg-[#4EB596]/5 transition-colors">
+              <button className="mt-6 w-full py-2 border border-primary/20 text-primary rounded-full text-sm font-medium hover:bg-primary/5 transition-colors">
                 View Profile
               </button>
             </div>

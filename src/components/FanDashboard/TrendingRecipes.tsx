@@ -70,7 +70,7 @@ const TrendingRecipes: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white rounded-[25px] shadow-md overflow-hidden border-[0.5px] border-primary/20 p-4 mt-4 w-[240px]">
+    <div className="bg-white rounded-[25px]  shadow-md overflow-hidden border-[0.5px] border-primary/20  p-4 mt-4">
       <h2 className="text-lg font-bold text-gray-800 mb-3">Trending Recipe</h2>
       <div className="space-y-3">
         {trendingRecipes.map((recipe) => (

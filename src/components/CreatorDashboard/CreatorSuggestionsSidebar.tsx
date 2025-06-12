@@ -21,13 +21,13 @@ const dummySuggestions = [
 
 const CreatorSuggestionsSidebar: React.FC = () => {
   return (
-    <div className="bg-white shadow rounded-2xl p-6 border-[0.5px] border-[#4EB596]">
-      <h2 className="text-lg font-bold mb-6 text-[#4EB596]">Suggestions for You</h2>
+    <div className="bg-white shadow rounded-2xl p-6 border-[0.5px] border-primary/20">
+      <h2 className="text-lg font-bold mb-6 text-primary">Suggestions for You</h2>
       <div className="space-y-4">
         {dummySuggestions.map((suggestion, index) => (
           <div
             key={index}
-            className="flex items-center gap-4 p-3 border border-gray-200 rounded-xl hover:shadow transition duration-300"
+            className="flex max-xl:flex-col items-start xl:items-center gap-4 p-3 border border-gray-200 rounded-xl hover:shadow transition duration-300"
           >
             <img
               src={suggestion.avatar}
@@ -38,7 +38,7 @@ const CreatorSuggestionsSidebar: React.FC = () => {
               <h3 className="font-semibold text-gray-800">{suggestion.name}</h3>
               <p className="text-sm text-gray-500">{suggestion.description}</p>
             </div>
-            <button className="bg-[#4EB596] hover:bg-[#3a9b7e] text-white px-3 py-1 rounded-full text-xs font-semibold">
+            <button className="bg-primary hover:bg-[#3a9b7e] text-white px-3 py-1 rounded-full text-xs font-semibold">
               Connect
             </button>
           </div>

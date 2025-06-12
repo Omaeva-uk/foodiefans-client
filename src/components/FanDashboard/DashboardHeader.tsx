@@ -8,6 +8,7 @@ interface DashboardHeaderProps {
   userImageUrl?: string;
   notificationCount?: number;
   messageCount?: number;
+  currentPage?: string;
   onNavigate: (page: string) => void;
 }
 
@@ -15,6 +16,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   userImageUrl = '/fan4.jpg',
   notificationCount = 5,
   messageCount = 9,
+  currentPage,
   onNavigate
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -134,10 +136,11 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         </div>
         
         {/* Profile Info Section with adjusted spacing */}
-        <div className="w-full mt-4 pb-4 px-6">
-          <div className="flex items-start">
-            {/* Left side - Profile Card with adjusted positioning */}
-            <div className="relative mt-22 w-[240px]">
+        <div className="w-full  mt-4 pb-4 px-6">
+          <div className="flex  items-start">
+            <div className='lg:grid lg:grid-cols-4 w-full gap-6'>
+              {/* Left side - Profile Card with adjusted positioning */}
+            <div className={`${currentPage !== "dashboard" ? 'hidden' : 'block'} relative mt-22 max-lg:hidden w-full `}>
               {/* Green outline container */}
               <div className="bg-white rounded-[25px] shadow-md overflow-hidden border-[0.5px] border-primary-light/25 p-6">
                 {/* Banner image */}
@@ -188,21 +191,24 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                 </div>
               </div>
             </div>
-            
-            {/* Right side - Fan Info */}
-            <div className="ml-4 mt-20 text-white">
-              <div className="text-xs font-medium tracking-wide">Fan</div>
-              <h1 className="text-2xl font-bold mt-0.5">Mr. Dhamu Ravi</h1>
-              
-              <div className="flex mt-2 space-x-3">
-                <button className="bg-primary-light cursor-pointer hover:bg-primary text-white px-6 py-1.5 rounded-full text-sm font-medium transition-colors">
-                  Follow
-                </button>
-                <button className="bg-white cursor-pointer hover:bg-gray-100 text-gray-800 px-6 py-1.5 rounded-full text-sm font-medium transition-colors">
-                  View Profile
-                </button>
+              {/* Right side - Fan Info */}
+              <div className="mt-20 lg:mt-20  text-white">
+                <div className="text-xs font-medium tracking-wide">Fan</div>
+                <h1 className="text-2xl font-bold mt-0.5">Mr. Dhamu Ravi</h1>
+                
+                <div className="flex mt-2 space-x-3">
+                  <button className="bg-primary-light cursor-pointer hover:bg-primary text-white px-6 py-1.5 rounded-full text-sm font-medium transition-colors">
+                    Follow
+                  </button>
+                  <button className="bg-white cursor-pointer hover:bg-gray-100 text-gray-800 px-6 py-1.5 rounded-full text-sm font-medium transition-colors">
+                    View Profile
+                  </button>
+                </div>
               </div>
             </div>
+            
+            
+            
           </div>
         </div>
       </header>

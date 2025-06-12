@@ -150,7 +150,7 @@ const NotificationsPage: React.FC = () => {
             {filteredNotifications.some(n => !n.isRead) && (
               <button 
                 onClick={markAllAsRead}
-                className="text-sm text-[#4EB596] hover:text-[#3a9b7e] font-medium"
+                className="text-sm text-primary hover:text-primary-hover font-medium"
               >
                 Mark all as read
               </button>
@@ -160,31 +160,31 @@ const NotificationsPage: React.FC = () => {
           {/* Tabs */}
           <div className="flex overflow-x-auto border-b border-gray-200 scrollbar-hide">
             <button 
-              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'all' ? 'text-[#4EB596] border-b-2 border-[#4EB596]' : 'text-gray-500'}`}
+              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'all' ? 'text-primary border-b-2 border-primary' : 'text-gray-500'}`}
               onClick={() => setActiveTab('all')}
             >
               All
             </button>
             <button 
-              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'unread' ? 'text-[#4EB596] border-b-2 border-[#4EB596]' : 'text-gray-500'}`}
+              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'unread' ? 'text-primary border-b-2 border-primary' : 'text-gray-500'}`}
               onClick={() => setActiveTab('unread')}
             >
               Unread
             </button>
             <button 
-              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'like' ? 'text-[#4EB596] border-b-2 border-[#4EB596]' : 'text-gray-500'}`}
+              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'like' ? 'text-primary border-b-2 border-primary' : 'text-gray-500'}`}
               onClick={() => setActiveTab('like')}
             >
               Likes
             </button>
             <button 
-              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'comment' ? 'text-[#4EB596] border-b-2 border-[#4EB596]' : 'text-gray-500'}`}
+              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'comment' ? 'text-primary border-b-2 border-primary' : 'text-gray-500'}`}
               onClick={() => setActiveTab('comment')}
             >
               Comments
             </button>
             <button 
-              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'follow' ? 'text-[#4EB596] border-b-2 border-[#4EB596]' : 'text-gray-500'}`}
+              className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${activeTab === 'follow' ? 'text-primary border-b-2 border-primary' : 'text-gray-500'}`}
               onClick={() => setActiveTab('follow')}
             >
               Follows
@@ -202,7 +202,7 @@ const NotificationsPage: React.FC = () => {
               filteredNotifications.map(notification => (
                 <div 
                   key={notification.id} 
-                  className={`p-4 hover:bg-gray-50 transition-colors ${!notification.isRead ? 'bg-[#F0F9F6]' : ''}`}
+                  className={`p-4 hover:bg-primary-hover/5 transition-colors ${!notification.isRead ? 'bg-primary-light/10' : ''}`}
                   onClick={() => markAsRead(notification.id)}
                 >
                   <div className="flex">
@@ -240,7 +240,7 @@ const NotificationsPage: React.FC = () => {
                           <Clock size={12} className="mr-1" />
                           {notification.time}
                           {!notification.isRead && (
-                            <span className="ml-2 w-2 h-2 bg-[#4EB596] rounded-full"></span>
+                            <span className="ml-2 w-2 h-2 bg-primary rounded-full"></span>
                           )}
                         </div>
                       </div>
@@ -261,7 +261,7 @@ const NotificationsPage: React.FC = () => {
                               e.stopPropagation();
                               markAsRead(notification.id);
                             }}
-                            className="flex items-center text-xs font-medium text-[#4EB596] hover:text-[#3a9b7e]"
+                            className="flex items-center text-xs font-medium text-primary hover:text-primary-hover"
                           >
                             <Check size={14} className="mr-1" />
                             Mark as read

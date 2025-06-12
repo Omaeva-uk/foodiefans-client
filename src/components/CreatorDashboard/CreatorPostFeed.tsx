@@ -247,7 +247,7 @@ const CreatorPostFeed: React.FC = () => {
       <div className="mb-4"> {/* Changed from mb-8 to mb-4 */}
         <button 
           onClick={() => setShowUploadForm(!showUploadForm)}
-          className="w-full bg-[#028b6e] text-white p-3 rounded-2xl shadow flex items-center justify-center gap-2 hover:bg-[#026655] transition-colors"
+          className="w-full bg-primary text-white p-3 rounded-2xl shadow flex items-center justify-center gap-2 hover:bg-primary-hover transition-colors"
           /* Changed p-4 to p-3 to make button slightly smaller */
         >
           <Plus size={20} />
@@ -259,13 +259,13 @@ const CreatorPostFeed: React.FC = () => {
       {showUploadForm && (
         <div className="bg-white rounded-2xl shadow-md overflow-hidden mb-4"> {/* Changed from mb-8 to mb-4 */}
           <div className="p-4 border-b border-gray-100">
-            <h3 className="text-lg font-bold text-[#028b6e]">Create New Recipe</h3>
+            <h3 className="text-lg font-bold text-primary">Create New Recipe</h3>
           </div>
           
           <form onSubmit={handleSubmit} className="p-4">
             {/* Media Upload Area */}
             <div 
-              className="border-2 border-dashed border-gray-300 rounded-xl p-8 mb-6 text-center cursor-pointer hover:border-[#028b6e] transition-colors"
+              className="border-2 border-dashed border-gray-300 rounded-xl p-8 mb-6 text-center cursor-pointer hover:border-primary transition-colors"
               onClick={() => fileInputRef.current?.click()}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
@@ -289,7 +289,7 @@ const CreatorPostFeed: React.FC = () => {
               ) : (
                 <div className="flex flex-col items-center">
                   <div className="p-4 bg-[#F0F9F6] rounded-full mb-4">
-                    <Upload size={32} className="text-[#028b6e]" />
+                    <Upload size={32} className="text-primary" />
                   </div>
                   <p className="text-gray-600 mb-2">Drag and drop or click to upload</p>
                   <p className="text-gray-400 text-sm mb-4">Supports images and videos up to 500MB</p>
@@ -310,7 +310,7 @@ const CreatorPostFeed: React.FC = () => {
                 <div className="mt-4">
                   <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-[#028b6e]" 
+                      className="h-full bg-primary" 
                       style={{ width: `${uploadProgress}%` }} 
                     />
                   </div>
@@ -338,7 +338,7 @@ const CreatorPostFeed: React.FC = () => {
                   name="title"
                   value={newPost.title}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#028b6e]/50 focus:border-[#028b6e] focus:outline-none"
+                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none"
                   placeholder="e.g. Homemade Margherita Pizza"
                   required
                 />
@@ -351,7 +351,7 @@ const CreatorPostFeed: React.FC = () => {
                   name="category"
                   value={newPost.category}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#028b6e]/50 focus:border-[#028b6e] focus:outline-none"
+                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none"
                   required
                 >
                   <option value="">Select a category</option>
@@ -378,7 +378,7 @@ const CreatorPostFeed: React.FC = () => {
                   name="cookingTime"
                   value={newPost.cookingTime}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#028b6e]/50 focus:border-[#028b6e] focus:outline-none"
+                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none"
                   placeholder="e.g. 30 min"
                   required
                 />
@@ -391,7 +391,7 @@ const CreatorPostFeed: React.FC = () => {
                   name="difficulty"
                   value={newPost.difficulty}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#028b6e]/50 focus:border-[#028b6e] focus:outline-none"
+                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none"
                   required
                 >
                   <option value="Easy">Easy</option>
@@ -410,7 +410,7 @@ const CreatorPostFeed: React.FC = () => {
                 value={newPost.description}
                 onChange={handleInputChange}
                 rows={3}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#028b6e]/50 focus:border-[#028b6e] focus:outline-none"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none"
                 placeholder="Describe your recipe..."
                 required
               />
@@ -425,7 +425,7 @@ const CreatorPostFeed: React.FC = () => {
                 value={newPost.ingredients}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#028b6e]/50 focus:border-[#028b6e] focus:outline-none"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none"
                 placeholder="List your ingredients, one per line"
                 required
               />
@@ -442,7 +442,7 @@ const CreatorPostFeed: React.FC = () => {
               </button>
               <button
                 type="submit"
-                className="px-6 py-3 bg-[#028b6e] text-white rounded-xl shadow hover:bg-[#026655] transition-colors"
+                className="px-6 py-3 bg-primary text-white rounded-xl shadow hover:bg-primary-hover transition-colors"
               >
                 Publish Recipe
               </button>
@@ -455,7 +455,7 @@ const CreatorPostFeed: React.FC = () => {
       {localPosts.map((post, index) => (
         <div
           key={post.id}
-          className={`bg-white rounded-2xl shadow-md overflow-hidden border-[0.5px] border-[#4EB596] transition-all hover:shadow-lg ${index === 0 ? "mt-0" : ""}`}          /* Added conditional class to ensure first post has no top margin */
+          className={`bg-white rounded-2xl shadow-md overflow-hidden border-[0.5px] border-primary/20 transition-all hover:shadow-lg ${index === 0 ? "mt-0" : ""}`}          /* Added conditional class to ensure first post has no top margin */
         >
           {/* Creator header */}
           <div className="p-4 flex items-center justify-between border-b border-gray-100">
@@ -469,7 +469,7 @@ const CreatorPostFeed: React.FC = () => {
                 <div className="flex items-center gap-1">
                   <h4 className="font-semibold text-gray-800">{post.creator.name}</h4>
                   {post.creator.verified && (
-                    <span className="text-[#028b6e]">
+                    <span className="text-primary">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                         <path fillRule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clipRule="evenodd" />
                       </svg>
@@ -504,7 +504,7 @@ const CreatorPostFeed: React.FC = () => {
             {/* Badges */}
             <div className="absolute top-3 left-3 flex gap-2">
               {post.featured && (
-                <span className="bg-[#028b6e] text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                <span className="bg-primary text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
                   <Award size={12} />
                   Featured
                 </span>
@@ -538,13 +538,13 @@ const CreatorPostFeed: React.FC = () => {
           {/* Post content */}
           <div className="p-4">
             <div className="flex items-center gap-2 mb-2">
-              <span className="bg-[#E5F5F0] text-[#028b6e] text-xs px-2 py-1 rounded-full">
+              <span className="bg-primary/5 text-primary text-xs px-2 py-1 rounded-full">
                 {post.category}
               </span>
               <span className="text-xs text-gray-400">{post.postedOn}</span>
             </div>
             
-            <h3 className="text-xl font-bold mb-2 text-[#028b6e]">{post.title}</h3>
+            <h3 className="text-xl font-bold mb-2 text-primary">{post.title}</h3>
             <p className="text-gray-600 mb-4 text-sm">{post.description}</p>
             
             {/* Ingredients preview */}
@@ -590,7 +590,7 @@ const CreatorPostFeed: React.FC = () => {
           
           {/* View full recipe button */}
           <div className="px-4 pb-4">
-            <button className="w-full bg-[#F0F9F6] hover:bg-[#E5F5F0] text-[#028b6e] font-medium py-2 rounded-xl transition-colors">
+            <button className="w-full bg-primary hover:bg-primary-hover text-white font-medium py-2 rounded-xl transition-colors">
               View Full Recipe
             </button>
           </div>

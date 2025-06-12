@@ -118,9 +118,9 @@ const CreatorDashboardHeader: React.FC<CreatorDashboardHeaderProps> = ({
 
         {/* Profile Card & Creator Info under the header */}
         <div className="w-full mt-4 pb-4 px-6">
-          <div className="flex items-start">
+          <div className="lg:grid lg:grid-cols-4 gap-6">
             {/* Left - Creator Profile Card */}
-            <div className="relative mt-20 w-[330px]">
+            <div className="relative mt-20 max-lg:hidden ">
               <div className="bg-white rounded-[25px] shadow-md  border-[0.5px] border-primary/20 p-6">
                 <div className="h-18 w-full bg-gray-100 rounded-t-xl overflow-hidden relative">
                   <img
@@ -163,7 +163,7 @@ const CreatorDashboardHeader: React.FC<CreatorDashboardHeaderProps> = ({
             </div>
 
             {/* Right - Creator Name & Actions */}
-            <div className="ml-4 mt-15 text-white">
+            <div className="ml-4 mt-18 xl:mt-10 text-white">
               <div className="text-xs font-medium tracking-wide">Top Creator</div>
               <h1 className="text-2xl font-bold mt-0.5">Chef Gordon Ramsay</h1>
               <div className="flex mt-2 space-x-3">

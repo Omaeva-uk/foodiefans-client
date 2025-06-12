@@ -85,7 +85,7 @@ const ActivitySidebar: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white rounded-[25px] shadow-md overflow-hidden border-[0.5px] border-primary/20 p-3 w-[300px] ml-4">
+    <div className="bg-white rounded-[25px] shadow-md overflow-hidden border-[0.5px] border-primary/20 p-3 ">
       <div className="flex justify-between items-center mb-2">
         <h2 className="font-medium text-gray-800 text-sm">Activity</h2>
         <Link href="/activity" className=' cursor-pointer'>

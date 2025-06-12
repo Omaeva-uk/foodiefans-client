@@ -3,7 +3,7 @@ import { MessageCircle, Users, Zap } from "lucide-react";
 
 const recentActivities = [
   {
-    icon: <Users size={18} className="text-[#4EB596]" />,
+    icon: <Users size={18} className="text-primary" />,
     description: "Collaborated with Chef Jamie",
     time: "2 hours ago",
   },
@@ -13,12 +13,12 @@ const recentActivities = [
     time: "5 hours ago",
   },
   {
-    icon: <MessageCircle size={18} className="text-[#4EB596]" />,
+    icon: <MessageCircle size={18} className="text-primary" />,
     description: "Received 12 new comments",
     time: "1 day ago",
   },
   {
-    icon: <Users size={18} className="text-[#4EB596]" />,
+    icon: <Users size={18} className="text-primary" />,
     description: "Started a new collaboration with Chef Mark",
     time: "2 days ago",
   },
@@ -26,8 +26,8 @@ const recentActivities = [
 
 const CreatorActivitySidebar: React.FC = () => {
   return (
-    <div className="bg-white shadow rounded-2xl p-6 border-[0.5px] border-[#4EB596]">
-      <h2 className="text-lg font-bold mb-6 text-[#4EB596] flex items-center gap-2">
+    <div className="bg-white shadow rounded-2xl p-6 border-[0.5px] border-primary/20">
+      <h2 className="text-lg font-bold mb-6 text-primary flex items-center gap-2">
         <Zap size={20} className="text-yellow-400" />
         Recent Activity
       </h2>

@@ -24,6 +24,7 @@ export default function FanDashboard() {
         notificationCount={5}
         messageCount={9}
         onNavigate={handleNavigate}
+        currentPage= {currentPage}
       />
       
       {/* Conditional rendering based on current page */}
@@ -35,10 +36,10 @@ export default function FanDashboard() {
         <NotificationsPage />
       ) : (
         // Default dashboard content with the three-column layout
-        <div className="px-6 pt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="px-6 lg:pt-20">
+          <div className="grid grid-cols-1  justify-center lg:grid-cols-4 gap-6">
             {/* Left sidebar with trending recipes */}
-            <div className="col-span-1 -mt-100">
+            <div className="col-span-1 max-lg:hidden -mt-100">
               {/* Space for the profile card */}
               <div className="h-[300px]"></div>
               
@@ -47,15 +48,15 @@ export default function FanDashboard() {
             </div>
             
             {/* Main content area */}
-            <div className="col-span-2 -mt-[300px] -ml-24">
+            <div className="col-span-2 lg:-mt-[300px] ">
               <PostFeed />
             </div>
             
             {/* Right sidebar */}
-            <div className="col-span-1 -mt-[280px]">
+            <div className="col-span-1 max-lg:hidden -mt-[280px]">
               <ActivitySidebar />
               
-              <div className="mt-4">
+              <div className="mt-4 max-lg:hidden">
                 <SuggestionsSidebar />
               </div>
             </div>

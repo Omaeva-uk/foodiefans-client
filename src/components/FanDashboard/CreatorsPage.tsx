@@ -151,7 +151,7 @@ const CreatorsPage: React.FC = () => {
               </div>
             </div>
 
-            <button className="bg-[#4EB596] hover:bg-[#3a9b7e] text-white px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center">
+            <button className="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center">
               <Search size={16} className="mr-1" />
               Search
             </button>
@@ -240,7 +240,7 @@ const CreatorsPage: React.FC = () => {
                   </div>
                   
                   {/* Creator info overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <div className="absolute bottom-0 left-0 right-0 glass-morph p-2">
                     <div className="flex items-center">
                       <User size={18} className="text-white mr-2" />
                       <span className="text-white font-medium">{creator.name}</span>

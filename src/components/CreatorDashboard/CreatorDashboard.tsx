@@ -37,17 +37,17 @@ export default function CreatorDashboard() {
         <div className="px-6 pt-0"> {/* No negative margin here */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 ">
             {/* Left sidebar */}
-            <div className="col-span-1 ">
+            <div className="col-span-1 max-md:mt-12">
               <CreatorTrendingRecipes />
             </div>
 
             {/* Main post feed - with negative margin applied only to this column */}
-            <div className="col-span-2 -mt-26">
+            <div className="col-span-2 lg:-mt-52 ">
               <CreatorPostFeed />
             </div>
 
             {/* Right sidebar */}
-            <div className="col-span-1 -mt-26">
+            <div className="col-span-1 lg:-mt-52">
               <CreatorActivitySidebar />
               <div className="mt-4">
                 <CreatorSuggestionsSidebar />
