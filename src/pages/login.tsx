@@ -39,99 +39,64 @@ return newErrors;
 
 // HARDCODED CREDENTIALS LOGIN
 const handleSubmit = async (e: React.FormEvent) => {
-console.log("Form submission started");
-e.preventDefault();
+  console.log("Form submission started");
+  e.preventDefault();
 
-const validationErrors = validate();
-console.log("Validation results:", validationErrors);
+  const validationErrors = validate();
+  console.log("Validation results:", validationErrors);
 
-if (Object.keys(validationErrors).length > 0) {
-console.log("Validation failed, setting errors");
-setErrors(validationErrors);
-} else {
-console.log("Validation passed, proceeding with login");
-try {
-console.log("Checking credentials for:", formValues.email);
+  if (Object.keys(validationErrors).length > 0) {
+    console.log("Validation failed, setting errors");
+    setErrors(validationErrors);
+  } else {
+    console.log("Validation passed, proceeding with login");
+    try {
+      console.log("Attempting login for:", formValues.email);
 
-let mockResponse;
+      // Call your secure backend API
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formValues.email,
+          password: formValues.password,
+        }),
+      });
 
-// SUPER USER / ADMIN CREDENTIALS
-if (formValues.email === "admin@foodiefan.com" && formValues.password === "admin123") {
-console.log("Super User/Admin credentials matched");
-mockResponse = {
-data: {
-message: 'Login successful',
-role: 'admin',
-user: {
-name: 'Super Admin',
-email: formValues.email,
-permissions: ['all']
-}
-}
+      if (!response.ok) {
+        throw new Error('Invalid credentials');
+      }
+
+      const data = await response.json();
+      console.log("Login response:", data);
+
+      // Store user data and token
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('userRole', data.role);
+      localStorage.setItem('access_token', data.access_token);
+
+      // Redirect based on role
+      console.log("Redirecting based on role:", data.role);
+      if (data.role === 'fan') {
+        console.log("Redirecting to fan dashboard");
+        router.push('/fan-dashboard');
+      } else if (data.role === 'creator') {
+        console.log("Redirecting to creator dashboard");
+        router.push('/creator-dashboard');
+      } else {
+        console.log("Unknown role:", data.role);
+        alert('Unknown user role');
+      }
+    } catch (error) {
+      console.log("Error in login process");
+      console.error(error);
+      alert('Invalid login credentials');
+    }
+  }
 };
-}
-// FAN USER CREDENTIALS
-else if (formValues.email === "fan@foodiefan.com" && formValues.password === "fan123") {
-console.log("Fan credentials matched");
-mockResponse = {
-data: {
-message: 'Login successful',
-role: 'fan',
-user: {
-name: 'Fan User',
-email: formValues.email
-}
-}
-};
-}
-// 👨‍🍳 CREATOR USER CREDENTIALS
-else if (formValues.email === "creator@foodiefan.com" && formValues.password === "creator123") {
-console.log("Creator credentials matched");
-mockResponse = {
-data: {
-message: 'Login successful',
-role: 'creator',
-user: {
-name: 'Creator User',
-email: formValues.email
-}
-}
-};
-}
-else {
-console.log("No credential match found");
-throw new Error('Invalid credentials');
-}
 
-console.log("Mock response data:", mockResponse.data);
-
-// Store user data in localStorage
-console.log("Storing user data in localStorage");
-localStorage.setItem('user', JSON.stringify(mockResponse.data.user));
-localStorage.setItem('userRole', mockResponse.data.role);
-
-// Redirect based on role
-console.log("Redirecting based on role:", mockResponse.data.role);
-if (mockResponse.data.role === 'fan') {
-console.log("Redirecting to fan dashboard");
-router.push('/fan-dashboard');
-} else if (mockResponse.data.role === 'creator') {
-console.log("Redirecting to creator dashboard");
-router.push('/creator-dashboard');
-} else if (mockResponse.data.role === 'admin') {
-console.log("Redirecting to admin dashboard");
-router.push('/admin-dashboard'); // Create this page or redirect to fan-dashboard for now
-} else {
-console.log("Unknown role:", mockResponse.data.role);
-alert('Unknown user role');
-}
-} catch (error) {
-console.log("Error in login process");
-console.error(error);
-alert('Invalid login credentials');
-}
-}
-};
 
 return (
 <div className="h-screen grid grid-cols-1 md:grid-cols-2  relative overflow-hidden  m-0 p-0 w-full">
